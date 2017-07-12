@@ -24,7 +24,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
-/** 
+/**
  * This class is to manage the notificatin service and to load the configuration.
  *
  * @author Sehwan Noh (devnoh@gmail.com)
@@ -96,7 +96,7 @@ public final class ServiceManager {
         Thread serviceThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = NotificationService.getIntent();
+                Intent intent = NotificationService.getIntent(context);
                 context.startService(intent);
             }
         });
@@ -104,7 +104,7 @@ public final class ServiceManager {
     }
 
     public void stopService() {
-        Intent intent = NotificationService.getIntent();
+        Intent intent = NotificationService.getIntent(context);
         context.stopService(intent);
     }
 
